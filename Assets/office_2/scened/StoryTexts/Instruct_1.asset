@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cbfa3d7889919488788b8573efa0a4, type: 3}
   m_Name: Instruct_1
   m_EditorClassIdentifier: 
-  storyText: You can't tell, and you affair that thing will kill you (again?). Use
-    left-mouse to throw rock at object to find the thing. Remember, what ever kills
-    you... doesn't like to stand still and let you find out.
+  storyText: You can't tell, and you're afraid of it. You grab onto a bunch of rocks
+    to throw (Left Mouse). Remember, whatever it is... it doesn't like to stand still
+    and let you find out.

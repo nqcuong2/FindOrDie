@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cbfa3d7889919488788b8573efa0a4, type: 3}
   m_Name: Intro
   m_EditorClassIdentifier: 
-  storyText: Wake up in a room like this is scary. You never expect it, but why?
-    Why this is all familiar? Wasn't you here before? Wasn't you get killed by an
-    object in this room?
+  storyText: It's this damn room again! You never expect it but it arrives all the
+    same, but why? Why is this all familiar? Weren't you here before? Didn't it get
+    you the last time?

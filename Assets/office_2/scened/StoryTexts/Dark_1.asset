@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cbfa3d7889919488788b8573efa0a4, type: 3}
   m_Name: Dark_1
   m_EditorClassIdentifier: 
-  storyText: Don't let thing that you seem familiar with fool you. They might hurt
-    you somedays (today).
+  storyText: Don't let something that you're so sure of fool you. That might just
+    be it.

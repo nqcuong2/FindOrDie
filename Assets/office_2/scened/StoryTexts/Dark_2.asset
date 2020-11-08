@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cbfa3d7889919488788b8573efa0a4, type: 3}
   m_Name: Dark_2
   m_EditorClassIdentifier: 
-  storyText: Isn't it easier to just...throw out all the rock and let that damn thing
-    comes to you? In a way, you already seen it coming.
+  storyText: Isn't it easier to just... throw out all the rocks and let that damn
+    thing come to you? In a way, you've already seen it coming.

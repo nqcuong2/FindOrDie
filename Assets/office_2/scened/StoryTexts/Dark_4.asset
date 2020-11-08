@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4cbfa3d7889919488788b8573efa0a4, type: 3}
-  m_Name: Instruct_2
+  m_Name: Dark_4
   m_EditorClassIdentifier: 
-  storyText: 'It did this the last time too. It likes to play with you, watch you
-    despair for a little while. Keep this in mind, and question everything around
-    you: "Has this always been here?".'
+  storyText: "\u201CLife is pleasant. Death is peaceful. It\u2019s the transition
+    that\u2019s troublesome.\u201D \u2013 Isaac Asimov"

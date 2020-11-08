@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cbfa3d7889919488788b8573efa0a4, type: 3}
   m_Name: Dark_3
   m_EditorClassIdentifier: 
-  storyText: 'You might be terrifying of the death ahead, but look at it this way:
-    it''s only the beginning.'
+  storyText: 'You might be terrified of certain death, but look at it this way: it''s
+    only the beginning.'
