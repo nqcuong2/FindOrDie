@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     public const int NUMBER_ROUNDS = 5;
-    public const float TIME_PER_ROUND = 10;
+    public const float TIME_PER_ROUND = 15;
     public const int ROCKS_PER_ROUND = 2;
 
     public int rocksThrown = 0;
@@ -22,13 +22,17 @@ public class GameplayManager : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
+
         if (timeLeft <= 0)
         {
+            LightManager.lightsOff = true;
+            MonsterManager.Instance.SelectRandomMonsterObject();
             timeLeft = TIME_PER_ROUND;
             rocksThrown = 0;
+            PlayerManager.Instance.AllowThrowingRock();
             roundsPassed++;
-            LightManager.lightsOff = true;
         }
+        
         if (Input.GetMouseButtonDown(0) && PlayerManager.Instance.fakeHandRock != null && PlayerManager.Instance.fakeHandRock.activeSelf)
         {
             PlayerManager.Instance.ThrowRock();
