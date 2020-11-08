@@ -32,6 +32,7 @@ public class LightManager : MonoBehaviour
             StartCoroutine(LightsFadeOff(0.5f, 3.0f));
             StartCoroutine(LightsOn(0.8f));
             StartCoroutine(LightsFadeOff(1.0f, 3.4f));
+            StartCoroutine(LightsOn(2.0f));
         }
     }
 
