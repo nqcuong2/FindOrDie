@@ -61,8 +61,10 @@ public class TimeNRock : MonoBehaviour
     }
     //Display Time and # of Rock
     public void displayTimeNRock(){
-        if(TimeRemaining>=0){TimeBox.text = ((int)TimeRemaining).ToString();}
+        if(TimeRemaining>=0)
+            TimeBox.text = ((int)TimeRemaining).ToString();
 
-        if(RockRemaining>=0){RockBox.text = RockRemaining.ToString() + "/"+TotalRock;}
+        if(RockRemaining>=0)
+            RockBox.text = $"x {RockRemaining}";
     }
 }
