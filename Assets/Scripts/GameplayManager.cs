@@ -14,7 +14,7 @@ public class GameplayManager : MonoBehaviour
     public int roundsPassed = 0;
     public float timeLeft = TIME_PER_ROUND;
 
-    public bool monsterHit = false;
+    public bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,24 +26,42 @@ public class GameplayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
+        if (!gameOver)
+        {
+            timeLeft -= Time.deltaTime;
 
-        if (timeLeft <= 0)
-        {
-            LightManager.lightsOff = true;
-            Invoke("DoThingsWhenLightsOff", 1.5f);
-            timeLeft = TIME_PER_ROUND;
-            rocksThrown = 0;
-            roundsPassed++;
-        }
-        
-        if (Input.GetMouseButtonDown(0) && PlayerManager.Instance.fakeHandRock != null && PlayerManager.Instance.fakeHandRock.activeSelf)
-        {
-            PlayerManager.Instance.ThrowRock();
-            rocksThrown++;
-            if (rocksThrown == ROCKS_PER_ROUND)
+            if (timeLeft <= 0)
             {
-                PlayerManager.Instance.DisallowThrowingRock();
+                LightManager.lightsOff = true;
+                Invoke("DoThingsWhenLightsOff", 1.5f);
+                timeLeft = TIME_PER_ROUND;
+                rocksThrown = 0;
+                roundsPassed++;
+                if (roundsPassed > NUMBER_ROUNDS)
+                {
+                    gameOver = true;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0) && PlayerManager.Instance.fakeHandRock != null && PlayerManager.Instance.fakeHandRock.activeSelf)
+            {
+                PlayerManager.Instance.ThrowRock();
+                rocksThrown++;
+                if (rocksThrown == ROCKS_PER_ROUND)
+                {
+                    PlayerManager.Instance.DisallowThrowingRock();
+                }
+            }
+        }
+        else
+        {
+            if (roundsPassed == NUMBER_ROUNDS + 1)
+            {
+                //Lost. Show lost screen
+            } 
+            else
+            {
+                //Won. Show won screen
             }
         }
     }
