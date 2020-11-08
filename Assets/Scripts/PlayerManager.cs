@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Transform rightHandTransform;
     [SerializeField] int throwForce = 1000;
 
+    public static AudioSource PlayerAudioSource { get; private set; }
+
     private const string THROW_STATE = "Throw";
     private Animator animator;
 
@@ -15,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        PlayerAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

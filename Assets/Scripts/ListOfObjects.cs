@@ -23,7 +23,7 @@ public class ListOfObjects : MonoBehaviour
     }
 
     
-    public void disableAll(){
+    public void DisableAll(){
         //hide all the selected game objects that monster can possess.
         foreach (var item in ObjectsList)
         {
