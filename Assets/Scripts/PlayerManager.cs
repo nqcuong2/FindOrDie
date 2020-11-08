@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] GameObject rockPrefab;
-    [SerializeField] GameObject fakeHandRock;
+    [SerializeField] public GameObject fakeHandRock;
     [SerializeField] Transform rightHandTransform;
     [SerializeField] int throwForce = 1000;
 
     public static PlayerManager Instance { get; private set; }
     public static AudioSource PlayerAudioSource { get; private set; }
 
-    private const string THROW_STATE = "Throw";
-    private Animator animator;
+    public const string THROW_STATE = "Throw";
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -28,21 +28,24 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && fakeHandRock.activeSelf)
-        {
-            animator.Play(THROW_STATE);
-        }
+        
     }
 
     public void ThrowRock()
     {
-        if (fakeHandRock.activeSelf)
-        {
-            var rock = Instantiate(rockPrefab);
-            rock.transform.position = rightHandTransform.position;
-            rock.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * throwForce);
-            fakeHandRock.SetActive(false);
-        }
+        animator.Play(THROW_STATE);
+    }
+
+    public void SpawnRock()
+    {
+        var rock = Instantiate(rockPrefab);
+        rock.transform.position = rightHandTransform.position;
+        rock.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * throwForce);
+    }
+
+    public void DisallowThrowingRock()
+    {
+        fakeHandRock.SetActive(false);
     }
 
     public void AllowThrowingRock()

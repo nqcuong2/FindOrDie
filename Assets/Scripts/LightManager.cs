@@ -6,8 +6,8 @@ public class LightManager : MonoBehaviour
 {
     public GameObject[] lights;
     public Light[] lightObjects;
-    public bool lightsOn = false;
-    public bool lightsOff = false;
+    public static bool lightsOn = false;
+    public static bool lightsOff = false;
     // Start is called before the first frame update
     void Start()
     {
