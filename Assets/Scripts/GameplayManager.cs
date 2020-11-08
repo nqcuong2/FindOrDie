@@ -7,7 +7,7 @@ public class GameplayManager : MonoBehaviour
     public static GameplayManager Instance;
 
     public const int NUMBER_ROUNDS = 5;
-    public const float TIME_PER_ROUND = 15;
+    public const float TIME_PER_ROUND = 30;
     public const int ROCKS_PER_ROUND = 2;
 
     public int rocksThrown = 0;
@@ -29,6 +29,8 @@ public class GameplayManager : MonoBehaviour
         if (!gameOver)
         {
             timeLeft -= Time.deltaTime;
+            TimeNRock.Instance.TimeRemaining = timeLeft;
+            TimeNRock.Instance.RockRemaining = ROCKS_PER_ROUND - rocksThrown;
 
             if (timeLeft <= 0)
             {
@@ -58,10 +60,12 @@ public class GameplayManager : MonoBehaviour
             if (roundsPassed == NUMBER_ROUNDS + 1)
             {
                 //Lost. Show lost screen
+                Debug.Log("Lost");
             } 
             else
             {
                 //Won. Show won screen
+                Debug.Log("Won");
             }
         }
     }

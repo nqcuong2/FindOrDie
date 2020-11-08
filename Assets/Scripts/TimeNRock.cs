@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class TimeNRock : MonoBehaviour
 {
+    public static TimeNRock Instance;
     // Start is called before the first frame update
     [SerializeField] int TotalRock;
 
@@ -21,12 +22,14 @@ public class TimeNRock : MonoBehaviour
 
     private bool OutOfTime = false;
 
-    private float TimeRemaining;
-    private int RockRemaining;
+    public float TimeRemaining;
+    public int RockRemaining;
 
     void Start() {
-        RockRemaining = TotalRock;
-        TimeRemaining = TotalTime;
+        /*RockRemaining = TotalRock;
+        TimeRemaining = TotalTime;*/
+        if (!Instance)
+            Instance = this;
     }
 
     void Update(){
