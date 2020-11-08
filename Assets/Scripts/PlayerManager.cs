@@ -8,10 +8,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Transform rightHandTransform;
     [SerializeField] int throwForce = 1000;
 
+    private const string THROW_STATE = "Throw";
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,9 +22,14 @@ public class PlayerManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var rock = Instantiate(rockPrefab);
-            rock.transform.position = rightHandTransform.position;
-            rock.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * throwForce);
+            animator.Play(THROW_STATE);
         }
+    }
+
+    public void ThrowRock()
+    {
+        var rock = Instantiate(rockPrefab);
+        rock.transform.position = rightHandTransform.position;
+        rock.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * throwForce);
     }
 }

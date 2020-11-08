@@ -304,14 +304,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858755942617881379}
-  m_LocalRotation: {x: -0.00000092424153, y: 0.5980684, z: 0.000001325629, w: 0.80144507}
+  m_LocalRotation: {x: -0.17431813, y: 0.65182906, z: -0.19414414, w: 0.7120674}
   m_LocalPosition: {x: -0.2784152, y: -0.0000008942865, z: 0.0000003745891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7429779334607035307}
   m_Father: {fileID: 7888667032777760080}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.000010672651, y: 0.6688236, z: 0.00023512253}
+  m_LocalEulerAnglesHint: {x: 0.27800003, y: 84.867004, z: -30.248001}
 --- !u!1 &930454628313103472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,14 +1191,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4397502485383676049}
-  m_LocalRotation: {x: 0.020087369, y: -0.20540486, z: -0.08016298, w: 0.97518164}
+  m_LocalRotation: {x: 0.016898973, y: -0.24383932, z: -0.08089514, w: 0.9662882}
   m_LocalPosition: {x: 0.045699697, y: 0.10946176, z: -0.026280174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7953989061140091245}
   m_Father: {fileID: 4049701741544119815}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0.7254544, y: -17.700233, z: -14.576111}
+  m_LocalEulerAnglesHint: {x: -0.38900003, y: -28.293001, z: -9.473001}
 --- !u!1 &4555573940280462382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,14 +1222,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4555573940280462382}
-  m_LocalRotation: {x: -0.30756643, y: -0.13577175, z: -0.4351411, w: 0.8352372}
+  m_LocalRotation: {x: -0.34859803, y: -0.19750406, z: -0.4304418, w: 0.8088211}
   m_LocalPosition: {x: 0.105928436, y: -0.0052479836, z: -0.022320986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2212633897052191680}
   m_Father: {fileID: 6853116311145019381}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -39.194, y: 3.0230002, z: -56.114002}
+  m_LocalEulerAnglesHint: {x: -47.217003, y: -1.636, z: -55.327003}
 --- !u!1 &4615139918507549295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,14 +1408,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5102728073393648023}
-  m_LocalRotation: {x: -0.10874923, y: -0.7107143, z: -0.14380206, w: 0.67998517}
+  m_LocalRotation: {x: -0.108171135, y: -0.6844678, z: -0.1377747, w: 0.70768714}
   m_LocalPosition: {x: 0.2784152, y: -0.00000033079218, z: 0.000000116763104}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2635213731738628512}
   m_Father: {fileID: 7953989061140091245}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -20.628, y: -92.075005, z: -2.5100002}
+  m_LocalEulerAnglesHint: {x: -19.981, y: -87.58501, z: -2.8620002}
 --- !u!1 &5150143761007786987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,14 +1439,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5150143761007786987}
-  m_LocalRotation: {x: 0.076310925, y: 0.23156606, z: 0.3401246, w: 0.90822303}
+  m_LocalRotation: {x: 0.05867825, y: 0.24874988, z: 0.34182835, w: 0.90434164}
   m_LocalPosition: {x: -0.1059237, y: -0.005245829, z: -0.0223212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6625010889714757777}
   m_Father: {fileID: 2067659588627418780}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 3.3712366, y: 20.188795, z: 71.256966}
+  m_LocalEulerAnglesHint: {x: -3.6650002, y: 29.408, z: 40.45}
 --- !u!1 &5239300988714665723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7480602303898650397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.076, y: 0.702, z: -0.305}
+  m_LocalPosition: {x: 0.076, y: 0.597, z: -0.214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7480602303899015999}
@@ -2142,7 +2142,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.25
+  near clip plane: 0.2
   far clip plane: 1000
   field of view: 60
   orthographic: 0
