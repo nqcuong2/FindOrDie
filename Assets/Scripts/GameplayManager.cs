@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameplayManager : MonoBehaviour
 {
+    public static GameplayManager Instance;
+
     public const int NUMBER_ROUNDS = 5;
     public const float TIME_PER_ROUND = 15;
     public const int ROCKS_PER_ROUND = 2;
@@ -12,10 +14,13 @@ public class GameplayManager : MonoBehaviour
     public int roundsPassed = 0;
     public float timeLeft = TIME_PER_ROUND;
 
+    public bool monsterHit = false;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        if (!Instance)
+            Instance = this;
     }
 
     // Update is called once per frame
@@ -26,10 +31,9 @@ public class GameplayManager : MonoBehaviour
         if (timeLeft <= 0)
         {
             LightManager.lightsOff = true;
-            MonsterManager.Instance.SelectRandomMonsterObject();
+            Invoke("DoThingsWhenLightsOff", 1.5f);
             timeLeft = TIME_PER_ROUND;
             rocksThrown = 0;
-            PlayerManager.Instance.AllowThrowingRock();
             roundsPassed++;
         }
         
@@ -42,5 +46,11 @@ public class GameplayManager : MonoBehaviour
                 PlayerManager.Instance.DisallowThrowingRock();
             }
         }
+    }
+
+    void DoThingsWhenLightsOff()
+    {
+        MonsterManager.Instance.SelectRandomMonsterObject();
+        PlayerManager.Instance.AllowThrowingRock();
     }
 }

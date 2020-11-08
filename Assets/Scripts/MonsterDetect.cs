@@ -28,6 +28,7 @@ public class MonsterDetect : MonoBehaviour
             {
                 Debug.Log("Monster hit");
                 PlayerManager.PlayerAudioSource.PlayOneShot(hitSound);
+                GameplayManager.monsterHit = true;
             }
 
             firstHit = false;
