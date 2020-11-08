@@ -29,9 +29,6 @@ public class GameplayManager : MonoBehaviour
         if (!gameOver)
         {
             timeLeft -= Time.deltaTime;
-            TimeNRock.Instance.TimeRemaining = timeLeft;
-            TimeNRock.Instance.RockRemaining = ROCKS_PER_ROUND - rocksThrown;
-
             if (timeLeft <= 0)
             {
                 LightManager.lightsOff = true;
@@ -39,13 +36,14 @@ public class GameplayManager : MonoBehaviour
                 timeLeft = TIME_PER_ROUND;
                 rocksThrown = 0;
                 roundsPassed++;
+                TimeNRock.Instance.LoseHeart();
                 if (roundsPassed > NUMBER_ROUNDS)
                 {
                     gameOver = true;
                 }
             }
 
-            if (Input.GetMouseButtonDown(0) && PlayerManager.Instance.fakeHandRock != null && PlayerManager.Instance.fakeHandRock.activeSelf)
+            if (Input.GetMouseButtonDown(0) && PlayerManager.Instance.CanThrowRock())
             {
                 PlayerManager.Instance.ThrowRock();
                 rocksThrown++;

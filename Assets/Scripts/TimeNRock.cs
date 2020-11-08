@@ -6,36 +6,29 @@ using UnityEngine.UI;
 
 public class TimeNRock : MonoBehaviour
 {
-    public static TimeNRock Instance;
-    // Start is called before the first frame update
-    [SerializeField] int TotalRock;
-
-    [SerializeField] float TotalTime;
-
     [SerializeField] GameObject panel;
-
     [SerializeField] Text TimeBox;
-
     [SerializeField] Text RockBox;
+    [SerializeField] Sprite blackHeart;
+    [SerializeField] Image[] hearts;
+
+    public static TimeNRock Instance;
+
+    private int currHeartIndex = 0;
 
     private bool isCutScene= false;
 
-    private bool OutOfTime = false;
-
-    public float TimeRemaining;
-    public int RockRemaining;
+    private float TimeRemaining;
+    private int RockRemaining;
 
     void Start() {
-        /*RockRemaining = TotalRock;
-        TimeRemaining = TotalTime;*/
         if (!Instance)
             Instance = this;
     }
 
     void Update(){
         if(panel.activeInHierarchy == true){
-            if(!OutOfTime){DecreaseTime();}
-            displayTimeNRock();
+            DisplayTimeNRock();
         }
 
     }
@@ -44,30 +37,17 @@ public class TimeNRock : MonoBehaviour
         isCutScene = false;
     }
 
-    //Start counting for the round, when done, set true to OutOfTime
-    public void DecreaseTime(){
-        TimeRemaining -= Time.deltaTime;
-        if(TimeRemaining<0){
-            OutOfTime = true;
-            TimeRemaining = 0;
-        }
-        
-    }
-
-    //Return true if player is out of time for the round
-    public bool isTimeOut(){
-        return OutOfTime;
-    }
-
-    public void DecreaseRock(){
-        RockRemaining--;
-    }
     //Display Time and # of Rock
-    public void displayTimeNRock(){
+    public void DisplayTimeNRock(){
         if(TimeRemaining>=0)
-            TimeBox.text = ((int)TimeRemaining).ToString();
+            TimeBox.text = ((int)GameplayManager.Instance.timeLeft).ToString();
 
         if(RockRemaining>=0)
-            RockBox.text = $"x {RockRemaining}";
+            RockBox.text = $"x {GameplayManager.ROCKS_PER_ROUND - GameplayManager.Instance.rocksThrown}";
+    }
+
+    public void LoseHeart()
+    {
+        hearts[currHeartIndex++].sprite = blackHeart;
     }
 }

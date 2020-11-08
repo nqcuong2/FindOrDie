@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour
     public const string THROW_STATE = "Throw";
     public Animator animator;
 
+    private bool isThrowing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerManager : MonoBehaviour
 
     public void ThrowRock()
     {
+        isThrowing = true;
         animator.Play(THROW_STATE);
     }
 
@@ -51,5 +54,15 @@ public class PlayerManager : MonoBehaviour
     public void AllowThrowingRock()
     {
         fakeHandRock.SetActive(true);
+    }
+
+    public void FinishedThrow()
+    {
+        isThrowing = false;
+    }
+
+    public bool CanThrowRock()
+    {
+        return fakeHandRock != null && fakeHandRock.activeSelf && !isThrowing;
     }
 }
