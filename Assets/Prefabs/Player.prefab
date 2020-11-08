@@ -2506,7 +2506,7 @@ MonoBehaviour:
   rockPrefab: {fileID: 1855982433401263263, guid: 5ae00a31290bd439091caedefdc0ee44,
     type: 3}
   rightHandTransform: {fileID: 2635213731738628512}
-  throwForce: 400
+  throwForce: 600
 --- !u!1 &7497722515463600867
 GameObject:
   m_ObjectHideFlags: 0
