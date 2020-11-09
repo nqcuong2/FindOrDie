@@ -5,7 +5,10 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
+    
+    public bool endSound = true;
 
+    public int gameState = 0;
 
     public const int NUMBER_ROUNDS = 5;
     public const float TIME_PER_ROUND = 25;
@@ -30,7 +33,19 @@ public class GameplayManager : MonoBehaviour
     void Update()
     {
         if (!gameOver)
-        {
+        {   
+            if(gameState==0){
+                StoryManager.Instance.ShowIntro();
+                StoryManager.Instance.ShowInstruct_1();
+                StoryManager.Instance.ShowInstruct_2();
+            }else if(gameState==2){
+                StoryManager.Instance.ShowDark_1();
+            }else if(gameState==3){
+                StoryManager.Instance.ShowDark_2();
+            }else if(gameState==4){
+                StoryManager.Instance.ShowDark_3();
+            }
+            gameState++;
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
@@ -62,6 +77,7 @@ public class GameplayManager : MonoBehaviour
             {
                 //Lost. Show lost screen
                 Debug.Log("Lost");
+                EndGameManager.Instance.playLose(endSound);
                 EndGameManager.Instance.showGameOver();
                 EndGameManager.Instance.showPlayAgain();
             } 
@@ -69,9 +85,11 @@ public class GameplayManager : MonoBehaviour
             {
                 //Won. Show won screen
                 Debug.Log("Won");
+                EndGameManager.Instance.playLose(endSound);
                 EndGameManager.Instance.showVictory();
                 EndGameManager.Instance.showPlayAgain();
             }
+            endSound =false;
         }
     }
 

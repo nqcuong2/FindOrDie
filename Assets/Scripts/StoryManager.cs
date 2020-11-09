@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class StoryManager : MonoBehaviour
 {
+
+    public static StoryManager Instance;
+
     private bool isDisplaying =false;
     private IEnumerator coroutine;
     // Start is called before the first frame update
@@ -17,10 +20,11 @@ public class StoryManager : MonoBehaviour
     [SerializeField] Story Dark_3;
 
     [SerializeField] GameObject TimeNRockPanel;
-
-    void Start()
+    void Awake()
     {   
-        //ShowIntro();
+        if (!Instance){
+            Instance = this;
+        }
 
     }
 
