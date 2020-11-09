@@ -54,10 +54,13 @@ public class GameplayManager : MonoBehaviour
                 timeLeft = TIME_PER_ROUND;
                 rocksThrown = 0;
                 roundsPassed++;
-                TimeNRock.Instance.LoseHeart();
                 if (roundsPassed > NUMBER_ROUNDS)
                 {
                     gameOver = true;
+                } 
+                else
+                {
+                    TimeNRock.Instance.LoseHeart();
                 }
             }
 
