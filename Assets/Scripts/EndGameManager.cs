@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EndGameManager : MonoBehaviour
 {   
@@ -10,7 +12,7 @@ public class EndGameManager : MonoBehaviour
     public static EndGameManager Instance;
     [SerializeField] GameObject GameOver;
     [SerializeField] GameObject Victory;
-    [SerializeField] GameObject PlayAgainButton;
+    [SerializeField] GameObject PlayAgainText;
     [SerializeField] GameObject GameOverPanel;
 
     [SerializeField] bool isWin = false;
@@ -26,7 +28,10 @@ public class EndGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void showGameOver(){
@@ -39,7 +44,7 @@ public class EndGameManager : MonoBehaviour
 
     public void showPlayAgain(){
         TimeNRock.Instance.gameObject.SetActive(false);
-        PlayAgainButton.SetActive(true);
+        PlayAgainText.SetActive(true);
     }
 
     public void playVictory(bool play){

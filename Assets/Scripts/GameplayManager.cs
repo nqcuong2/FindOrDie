@@ -8,12 +8,12 @@ public class GameplayManager : MonoBehaviour
 
 
     public const int NUMBER_ROUNDS = 5;
-    public const float TIME_PER_ROUND = 30;
+    public const float TIME_PER_ROUND = 25;
     public const int ROCKS_PER_ROUND = 2;
 
     public int rocksThrown = 0;
     public int roundsPassed = 0;
-    public float timeLeft = TIME_PER_ROUND;
+    [HideInInspector] public float timeLeft;
 
     public bool gameOver = false;
 
@@ -22,6 +22,8 @@ public class GameplayManager : MonoBehaviour
     {
         if (!Instance)
             Instance = this;
+
+        timeLeft = TIME_PER_ROUND;
     }
 
     // Update is called once per frame
