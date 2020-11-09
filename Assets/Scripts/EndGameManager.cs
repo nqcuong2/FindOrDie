@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EndGameManager : MonoBehaviour
 {   
+
+    [SerializeField] AudioClip VictorySound;
+    [SerializeField] AudioClip LoseSound;
     public static EndGameManager Instance;
     [SerializeField] GameObject GameOver;
     [SerializeField] GameObject Victory;
     [SerializeField] GameObject PlayAgainButton;
-
     [SerializeField] GameObject GameOverPanel;
 
     [SerializeField] bool isWin = false;
@@ -40,4 +42,15 @@ public class EndGameManager : MonoBehaviour
         PlayAgainButton.SetActive(true);
     }
 
+    public void playVictory(bool play){
+        if(play){
+            PlayerManager.PlayerAudioSource.PlayOneShot(VictorySound);
+        }
+    }
+
+    public void playLose(bool play){
+        if(play){
+          PlayerManager.PlayerAudioSource.PlayOneShot(LoseSound);
+        }
+    }
 }
