@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public GameObject fakeHandRock;
     [SerializeField] Transform rightHandTransform;
     [SerializeField] int throwForce = 1000;
+    [SerializeField] AudioClip throwSound;
 
     public static PlayerManager Instance { get; private set; }
     public static AudioSource PlayerAudioSource { get; private set; }
@@ -41,6 +42,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SpawnRock()
     {
+        PlayerAudioSource.PlayOneShot(throwSound);
         var rock = Instantiate(rockPrefab);
         rock.transform.position = rightHandTransform.position;
         rock.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * throwForce);

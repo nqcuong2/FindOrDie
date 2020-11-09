@@ -325,6 +325,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 895230503089500359, guid: 389153895a6362f44a34d0c3a4da3b7d,
+        type: 3}
+      propertyPath: throwSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9011ea270f9ac534c8ecaa329743df31, type: 3}
     - target: {fileID: 3656060390592828270, guid: 389153895a6362f44a34d0c3a4da3b7d,
         type: 3}
       propertyPath: m_LocalPosition.x
