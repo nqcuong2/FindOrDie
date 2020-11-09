@@ -6,6 +6,7 @@ public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
 
+
     public const int NUMBER_ROUNDS = 5;
     public const float TIME_PER_ROUND = 30;
     public const int ROCKS_PER_ROUND = 2;
@@ -59,11 +60,15 @@ public class GameplayManager : MonoBehaviour
             {
                 //Lost. Show lost screen
                 Debug.Log("Lost");
+                EndGameManager.Instance.showGameOver();
+                EndGameManager.Instance.showPlayAgain();
             } 
             else
             {
                 //Won. Show won screen
                 Debug.Log("Won");
+                EndGameManager.Instance.showVictory();
+                EndGameManager.Instance.showPlayAgain();
             }
         }
     }
