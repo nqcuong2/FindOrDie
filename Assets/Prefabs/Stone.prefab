@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 487045059850740779}
   - component: {fileID: 4481739672791240899}
   m_Layer: 0
-  m_Name: Stone_2
+  m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c83f40523b144e7fa9bbfc76c907c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAudioSource: {fileID: 0}
-  hitSound: {fileID: 8300000, guid: dfd326c97e8c347da93f377939d4f9c8, type: 3}
+  hitSound: {fileID: 8300000, guid: 1c83812413c0d094ab9aa65f46b1eb2e, type: 3}
+  dieSound: {fileID: 8300000, guid: c68e5ef3558f3dc4db0b55391e06d629, type: 3}

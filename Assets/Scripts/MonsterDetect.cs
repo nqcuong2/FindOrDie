@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterDetect : MonoBehaviour
 {
     [SerializeField] AudioClip hitSound;
+    [SerializeField] AudioClip dieSound;
 
     private bool firstHit;
 
@@ -28,6 +29,7 @@ public class MonsterDetect : MonoBehaviour
             {
                 Debug.Log("Monster hit");
                 PlayerManager.PlayerAudioSource.PlayOneShot(hitSound);
+                PlayerManager.PlayerAudioSource.PlayOneShot(dieSound);
                 GameplayManager.Instance.gameOver = true;
             }
 
