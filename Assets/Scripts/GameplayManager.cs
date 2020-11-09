@@ -34,17 +34,15 @@ public class GameplayManager : MonoBehaviour
     {
         if (!gameOver)
         {   
-            if(gameState==0){
-                StoryManager.Instance.ShowIntro();
-                StoryManager.Instance.ShowInstruct_1();
-                StoryManager.Instance.ShowInstruct_2();
-            }else if(gameState==2){
-                StoryManager.Instance.ShowDark_1();
-            }else if(gameState==3){
-                StoryManager.Instance.ShowDark_2();
-            }else if(gameState==4){
-                StoryManager.Instance.ShowDark_3();
-            }
+            //if(gameState==0)
+            //    StoryManager.Instance.ShowIntro();
+            //}else if(gameState==2){
+            //    StoryManager.Instance.ShowDark_1();
+            //}else if(gameState==3){
+            //    StoryManager.Instance.ShowDark_2();
+            //}else if(gameState==4){
+            //    StoryManager.Instance.ShowDark_3();
+            //}
             gameState++;
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
