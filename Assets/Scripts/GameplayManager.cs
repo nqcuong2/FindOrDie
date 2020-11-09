@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
+
+    public bool startGame;
     
     public bool endSound = true;
 
@@ -27,48 +29,40 @@ public class GameplayManager : MonoBehaviour
             Instance = this;
 
         timeLeft = TIME_PER_ROUND;
+
+        StoryManager.Instance.ShowIntro();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!gameOver)
-        {   
-            //if(gameState==0)
-            //    StoryManager.Instance.ShowIntro();
-            //}else if(gameState==2){
-            //    StoryManager.Instance.ShowDark_1();
-            //}else if(gameState==3){
-            //    StoryManager.Instance.ShowDark_2();
-            //}else if(gameState==4){
-            //    StoryManager.Instance.ShowDark_3();
-            //}
-            gameState++;
-            timeLeft -= Time.deltaTime;
-            if (timeLeft <= 0)
+        {
+            if (startGame)
             {
-                LightManager.lightsOff = true;
-                Invoke("DoThingsWhenLightsOff", 1.5f);
-                timeLeft = TIME_PER_ROUND;
-                rocksThrown = 0;
-                roundsPassed++;
-                if (roundsPassed > NUMBER_ROUNDS)
+                timeLeft -= Time.deltaTime;
+                if (timeLeft <= 0)
                 {
-                    gameOver = true;
-                } 
-                else
-                {
+                    LightManager.lightsOff = true;
+                    Invoke("DoThingsWhenLightsOff", 1.5f);
+                    timeLeft = TIME_PER_ROUND;
+                    rocksThrown = 0;
+                    roundsPassed++;
                     TimeNRock.Instance.LoseHeart();
+                    if (roundsPassed > NUMBER_ROUNDS)
+                    {
+                        gameOver = true;
+                    }
                 }
-            }
 
-            if (Input.GetMouseButtonDown(0) && PlayerManager.Instance.CanThrowRock())
-            {
-                PlayerManager.Instance.ThrowRock();
-                rocksThrown++;
-                if (rocksThrown == ROCKS_PER_ROUND)
+                if (Input.GetMouseButtonDown(0) && PlayerManager.Instance.CanThrowRock())
                 {
-                    PlayerManager.Instance.DisallowThrowingRock();
+                    PlayerManager.Instance.ThrowRock();
+                    rocksThrown++;
+                    if (rocksThrown == ROCKS_PER_ROUND)
+                    {
+                        PlayerManager.Instance.DisallowThrowingRock();
+                    }
                 }
             }
         }

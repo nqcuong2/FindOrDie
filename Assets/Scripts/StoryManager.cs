@@ -28,40 +28,43 @@ public class StoryManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(isDisplaying==false){
-            TimeNRockPanel.SetActive(true);
-        }else{
-            TimeNRockPanel.SetActive(false);
-        }
-    }
-
     private IEnumerator sIntro(){
+        TimeNRockPanel.SetActive(false);
+
         isDisplaying = true;
-        StoryText.text = "";
         StoryText.text  = Intro.getStory();
-        yield return new WaitForSecondsRealtime(4);
-        StoryText.text = "";
-        isDisplaying=false;
+        yield return new WaitForSecondsRealtime(6);
+
+        StoryText.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(0.75f);
+
+        StoryText.gameObject.SetActive(true);
+        StoryText.text = Instruct_1.getStory();
+        yield return new WaitForSecondsRealtime(6.5f);
+
+        StoryText.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(0.75f);
+
+        StoryText.gameObject.SetActive(true);
+        StoryText.text = Instruct_2.getStory();
+
+        yield return new WaitForSecondsRealtime(6);
+
+        StoryText.gameObject.SetActive(false);
+        GameplayManager.Instance.startGame = true;
+        TimeNRockPanel.SetActive(true);
     }
 
-    private IEnumerator sInstruct_1(){
-        isDisplaying = true;
-        StoryText.text = "";   
-        StoryText.text  = Instruct_1.getStory();
-        yield return new WaitForSecondsRealtime(4);
-        StoryText.text = "";
-        isDisplaying=false;
-    }
+    //private IEnumerator sInstruct_1(){
+    //    isDisplaying = true;
+    //    isDisplaying=false;
+    //}
 
     private IEnumerator sInstruct_2(){
         isDisplaying = true;
-        StoryText.text = ""; 
-        StoryText.text  = Instruct_2.getStory();
         yield return new WaitForSecondsRealtime(4);
-        StoryText.text = "";
+
+        StartCoroutine(sInstruct_2());
         isDisplaying=false; 
     }
 
@@ -94,19 +97,7 @@ public class StoryManager : MonoBehaviour
 
 
     public void ShowIntro(){
-        coroutine = sIntro();
-        StartCoroutine(coroutine);
-    }
-
-
-    public void ShowInstruct_1(){
-        coroutine = sInstruct_1();
-        StartCoroutine(coroutine);
-    }
-
-    public void ShowInstruct_2(){
-        coroutine = sInstruct_2();
-        StartCoroutine(coroutine);
+        StartCoroutine(sIntro());
     }
 
     public void ShowDark_1(){
