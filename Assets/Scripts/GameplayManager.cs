@@ -79,5 +79,6 @@ public class GameplayManager : MonoBehaviour
     {
         MonsterManager.Instance.SelectRandomMonsterObject();
         PlayerManager.Instance.AllowThrowingRock();
+        PlayerManager.Instance.CleanRocks();
     }
 }

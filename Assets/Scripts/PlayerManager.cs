@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     public Animator animator;
 
     private bool isThrowing;
+    private List<GameObject> rocksOnFloor = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,7 @@ public class PlayerManager : MonoBehaviour
     {
         PlayerAudioSource.PlayOneShot(throwSound);
         var rock = Instantiate(rockPrefab);
+        rocksOnFloor.Add(rock);
         rock.transform.position = rightHandTransform.position;
         rock.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * throwForce);
     }
@@ -66,5 +68,13 @@ public class PlayerManager : MonoBehaviour
     public bool CanThrowRock()
     {
         return fakeHandRock != null && fakeHandRock.activeSelf && !isThrowing;
+    }
+
+    public void CleanRocks()
+    {
+        foreach (GameObject r in rocksOnFloor)
+        {
+            Destroy(r);
+        }
     }
 }
