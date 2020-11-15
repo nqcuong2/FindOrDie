@@ -13,7 +13,7 @@ public class GameplayManager : MonoBehaviour
     public int gameState = 0;
 
     public const int NUMBER_ROUNDS = 5;
-    public const float TIME_PER_ROUND = 25;
+    public const float TIME_PER_ROUND = 5;
     public const int ROCKS_PER_ROUND = 2;
 
     public int rocksThrown = 0;
@@ -48,10 +48,13 @@ public class GameplayManager : MonoBehaviour
                     timeLeft = TIME_PER_ROUND;
                     rocksThrown = 0;
                     roundsPassed++;
-                    TimeNRock.Instance.LoseHeart();
                     if (roundsPassed > NUMBER_ROUNDS)
                     {
                         gameOver = true;
+                    }
+                    else
+                    {
+                        TimeNRock.Instance.LoseHeart();
                     }
                 }
 
