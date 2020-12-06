@@ -38,6 +38,11 @@ public class GameplayManager : MonoBehaviour
     {
         if (!gameOver)
         {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                StoryManager.Instance.SkipIntro();
+            }
+
             if (startGame)
             {
                 timeLeft -= Time.deltaTime;

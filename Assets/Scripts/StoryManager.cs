@@ -9,7 +9,7 @@ public class StoryManager : MonoBehaviour
     public static StoryManager Instance;
 
     private bool isDisplaying =false;
-    private IEnumerator coroutine;
+    private Coroutine introCoroutine;
     // Start is called before the first frame update
     [SerializeField] Text StoryText;
     [SerializeField] Story Intro;
@@ -25,40 +25,7 @@ public class StoryManager : MonoBehaviour
         if (!Instance){
             Instance = this;
         }
-
     }
-
-    private IEnumerator sIntro(){
-        TimeNRockPanel.SetActive(false);
-
-        isDisplaying = true;
-        StoryText.text  = Intro.getStory();
-        yield return new WaitForSecondsRealtime(6);
-
-        StoryText.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(0.75f);
-
-        StoryText.gameObject.SetActive(true);
-        StoryText.text = Instruct_1.getStory();
-        yield return new WaitForSecondsRealtime(6.5f);
-
-        StoryText.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(0.75f);
-
-        StoryText.gameObject.SetActive(true);
-        StoryText.text = Instruct_2.getStory();
-
-        yield return new WaitForSecondsRealtime(6);
-
-        StoryText.gameObject.SetActive(false);
-        GameplayManager.Instance.startGame = true;
-        TimeNRockPanel.SetActive(true);
-    }
-
-    //private IEnumerator sInstruct_1(){
-    //    isDisplaying = true;
-    //    isDisplaying=false;
-    //}
 
     private IEnumerator sInstruct_2(){
         isDisplaying = true;
@@ -71,7 +38,7 @@ public class StoryManager : MonoBehaviour
     private IEnumerator sDark_1(){
         isDisplaying = true;
         StoryText.text = "";
-        StoryText.text  = Dark_1.getStory();
+        StoryText.text  = Dark_1.GetStory();
         yield return new WaitForSecondsRealtime(4);
         StoryText.text = "";
         isDisplaying=false;
@@ -80,7 +47,7 @@ public class StoryManager : MonoBehaviour
     private IEnumerator sDark_2(){
         isDisplaying = true;
         StoryText.text = "";   
-        StoryText.text  = Dark_2.getStory();
+        StoryText.text  = Dark_2.GetStory();
         yield return new WaitForSecondsRealtime(4);
         StoryText.text = "";
         isDisplaying=false;
@@ -89,7 +56,7 @@ public class StoryManager : MonoBehaviour
     private IEnumerator sDark_3(){
         isDisplaying = true;
         StoryText.text = ""; 
-        StoryText.text  = Dark_3.getStory();
+        StoryText.text  = Dark_3.GetStory();
         yield return new WaitForSecondsRealtime(4);
         StoryText.text = "";
         isDisplaying=false;
@@ -97,21 +64,60 @@ public class StoryManager : MonoBehaviour
 
 
     public void ShowIntro(){
-        StartCoroutine(sIntro());
+        introCoroutine = StartCoroutine(ShowIntroDiscretely());
     }
 
-    public void ShowDark_1(){
-        coroutine = sDark_1();
-        StartCoroutine(coroutine);
+    private IEnumerator ShowIntroDiscretely()
+    {
+        TimeNRockPanel.SetActive(false);
+
+        isDisplaying = true;
+        StoryText.text = Intro.GetStory();
+        yield return new WaitForSecondsRealtime(7.5f);
+
+        StoryText.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(0.75f);
+
+        StoryText.gameObject.SetActive(true);
+        StoryText.text = Instruct_1.GetStory();
+        yield return new WaitForSecondsRealtime(7.5f);
+
+        StoryText.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(0.75f);
+
+        StoryText.gameObject.SetActive(true);
+        StoryText.text = Instruct_2.GetStory();
+
+        yield return new WaitForSecondsRealtime(7.0f);
+
+        ShowGameScreen();
     }
 
-    public void ShowDark_2(){
-        coroutine = sDark_2();
-        StartCoroutine(coroutine);
+    private void ShowGameScreen()
+    {
+        StoryText.gameObject.SetActive(false);
+        GameplayManager.Instance.startGame = true;
+        TimeNRockPanel.SetActive(true);
     }
 
-    public void ShowDark_3(){
-        coroutine = sDark_3();
-        StartCoroutine(coroutine);
+    public void SkipIntro()
+    {
+        StopCoroutine(introCoroutine);
+        ShowGameScreen();
     }
+
+    //public void ShowDark_1(){
+    //    coroutine = sDark_1();
+    //    StartCoroutine(coroutine);
+    //}
+
+    //public void ShowDark_2(){
+    //    coroutine = sDark_2();
+    //    StartCoroutine(coroutine);
+    //}
+
+    //public void ShowDark_3(){
+    //    coroutine = sDark_3();
+    //    StartCoroutine(coroutine);
+    //}
 }

@@ -8,7 +8,7 @@ public class Story : ScriptableObject
 {
     [TextArea(10,14)] [SerializeField] string storyText;
 
-        public string getStory()
+    public string GetStory()
     {
         return storyText;
     }
