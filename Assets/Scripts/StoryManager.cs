@@ -76,14 +76,14 @@ public class StoryManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(7.5f);
 
         StoryText.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(0.75f);
+        yield return new WaitForSecondsRealtime(0.6f);
 
         StoryText.gameObject.SetActive(true);
         StoryText.text = Instruct_1.GetStory();
         yield return new WaitForSecondsRealtime(7.5f);
 
         StoryText.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(0.75f);
+        yield return new WaitForSecondsRealtime(0.6f);
 
         StoryText.gameObject.SetActive(true);
         StoryText.text = Instruct_2.GetStory();
@@ -95,7 +95,7 @@ public class StoryManager : MonoBehaviour
 
     private void ShowGameScreen()
     {
-        StoryText.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         GameplayManager.Instance.startGame = true;
         TimeNRockPanel.SetActive(true);
     }
