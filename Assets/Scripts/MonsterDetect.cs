@@ -28,11 +28,12 @@ public class MonsterDetect : MonoBehaviour
             if (collision.collider.tag == "Monster")
             {
                 Debug.Log("Monster hit");
-                PlayerManager.PlayerAudioSource.PlayOneShot(hitSound);
                 PlayerManager.PlayerAudioSource.PlayOneShot(dieSound);
                 GameplayManager.Instance.gameOver = true;
+                return;
             }
 
+            PlayerManager.PlayerAudioSource.PlayOneShot(hitSound);
             firstHit = false;
         }
     }
