@@ -45,8 +45,8 @@ public class PlayerManager : MonoBehaviour
     {
         PlayerAudioSource.PlayOneShot(throwSound);
         var rock = Instantiate(rockPrefab);
+        rock.transform.position = GameObject.Find("StoneSpawnPos").transform.position;
         rocksOnFloor.Add(rock);
-        rock.transform.position = rightHandTransform.position;
         rock.GetComponent<Rigidbody>().AddRelativeForce(Camera.main.transform.forward * throwForce);
     }
 
