@@ -6,6 +6,8 @@ public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager Instance;
 
+    public AudioSource musicPlayer;
+
     public bool startGame;
     
     public bool endSound = true;
@@ -31,6 +33,7 @@ public class GameplayManager : MonoBehaviour
         timeLeft = TIME_PER_ROUND;
 
         StoryManager.Instance.ShowIntro();
+        musicPlayer.Play();
     }
 
     // Update is called once per frame
@@ -38,11 +41,6 @@ public class GameplayManager : MonoBehaviour
     {
         if (!gameOver)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                StoryManager.Instance.SkipIntro();
-            }
-
             if (startGame)
             {
                 timeLeft -= Time.deltaTime;
@@ -76,6 +74,9 @@ public class GameplayManager : MonoBehaviour
         }
         else
         {
+            if (musicPlayer.isPlaying)
+                musicPlayer.Stop();
+
             if (roundsPassed == NUMBER_ROUNDS + 1)
             {
                 //Lost. Show lost screen

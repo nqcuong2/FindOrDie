@@ -73,22 +73,22 @@ public class StoryManager : MonoBehaviour
 
         isDisplaying = true;
         StoryText.text = Intro.GetStory();
-        yield return new WaitForSecondsRealtime(7.5f);
+        yield return new WaitForSecondsRealtime(6.2f);
 
         StoryText.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(0.6f);
+        yield return new WaitForSecondsRealtime(0.55f);
 
         StoryText.gameObject.SetActive(true);
         StoryText.text = Instruct_1.GetStory();
-        yield return new WaitForSecondsRealtime(7.5f);
+        yield return new WaitForSecondsRealtime(6.75f);
 
         StoryText.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(0.6f);
+        yield return new WaitForSecondsRealtime(0.55f);
 
         StoryText.gameObject.SetActive(true);
         StoryText.text = Instruct_2.GetStory();
 
-        yield return new WaitForSecondsRealtime(7.0f);
+        yield return new WaitForSecondsRealtime(6.2f);
 
         ShowGameScreen();
     }
